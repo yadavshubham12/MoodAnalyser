@@ -3,14 +3,20 @@ package com.blz.moodAnalyze;
 import org.testng.Assert;
 
 public class MoodAnalyserTest {
+        private String message;
 
-    public static String analyseMood(String message) {
-        if (message.contains("SAD")) {
-            return "SAD";
+        public MoodAnalyserTest() {
+            this.message = "";
         }
-        else {
-            return "HAPPY";
+
+        public MoodAnalyserTest(String message) {
+            this.message = message;
+        }
+
+        public String analyseMood() throws IllegalArgumentException {
+            if (this.message == null) {
+                throw new IllegalArgumentException("Message cannot be null");
+            }
+            return "Sad";
         }
     }
-
-}
